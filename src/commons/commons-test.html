@@ -1,0 +1,66 @@
+
+
+<div>
+  <h6>Validado:</h6>
+  <app-validator [ValueType] = "'Validado'" [ValueClass] = "'val'"></app-validator>
+  <br />
+  <br />
+  <h6>Rechazado:</h6>
+  <app-validator [ValueType] = "'Rechazado'" [ValueClass] = "'rec'"></app-validator>
+  <br />
+  <br />
+  <h6>En validaci&oacute;n:</h6>
+  <app-validator [ValueType] = "'En validaci&oacute;n'" [ValueClass] = "'env'"></app-validator>
+</div>
+
+
+
+<app-side-menu></app-side-menu>
+<app-side-menu></app-side-menu>
+
+<div class="container">
+  <br>
+  <div class="d-flex justify-content-between">
+    <custom-button [buttonLabel]="'Guardar'" [buttonClass]="'btn btn-primary'" [iconClass]="'far fa-hand-peace'"></custom-button>
+    <custom-button [buttonLabel]="'Agregar'" [buttonClass]="'btn btn-success'"></custom-button>
+    <custom-button [buttonLabel]="'Iniciar sesion'" [buttonClass]="'btn btn-outline-dark'" (click)="x($event)"></custom-button>
+  </div>
+</div>
+
+
+
+
+<div style="background-color: black;" >
+<form action="" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div  class="form-group">
+            <app-custom-input
+            formControlName="firstName"
+            [inputType]="'password'"
+            [valueClass] = "'valueLogin'"
+            [title]="'Contraseña'"
+            [placeHolder]="'Contraseña'">
+            </app-custom-input>
+        </div>
+      </form>
+
+</div>
+
+<div class="col-md-4"></div>
+<div  class="col-md-4"></div>
+
+</div>
+
+<div style="background-color: white;" class="col-12">
+    <form action="" [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div  class="form-group">
+                <app-custom-input
+                formControlName="firstName"
+                [inputType]="'password'"
+                [valueClass] = "'valueForm'"
+                [title]="'Contraseña'"
+                [placeHolder]="'Contraseña'">
+                </app-custom-input>
+            </div>
+          </form>
+
+    </div> 

@@ -1,0 +1,140 @@
+:host{
+	overflow: none;
+	height: 100%;
+}
+.container-side{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	margin: 0;
+	padding: 0;
+	background: #f9f9f9;
+}
+
+.container-side-left{
+	width: 12vw;
+	flex-flow: column;
+	overflow: hidden;
+}
+
+.container-menuList{
+	display: flex;
+	flex-flow: column;
+	overflow-y: scroll;
+	width: 105%;
+}
+
+.container-img-logo{
+	width: 80%;
+	margin: auto;
+	padding: 4% 0 30% 0;
+}
+
+.container-menuItem{
+	height: auto;
+	flex-flow: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.container-menuItem-button{
+	width: 95%;
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #a7a7a7;
+    padding: 5% 1%;
+}
+
+.container-menuItem-span{
+	margin: auto;
+}
+
+.container-menuItem-button-open{
+    font-weight: bold;
+    color: #000;
+}
+.container-ul{
+	width: 100%;
+	list-style-type: none;
+	text-align: center;
+	padding: 5px;
+}
+
+.container-menuItem-img{
+	width: 1.5rem;
+}
+
+.container-li{
+	cursor: pointer;
+	margin-top: 2%;
+}
+
+.container-li:hover{
+	background-color: #ebebeb;
+	border-radius: 15px;
+	width: 100%;
+}
+
+.container-li-selected{
+	background-color: #ebebeb;
+	border: 1px solid #ebebeb;
+	border-radius: 15px;
+	width: 100%;
+	font-weight: bold;
+}
+
+.container-menuItem-button-user{
+	justify-content: flex-start;
+	padding: 1% 5%;
+	margin-bottom: 5%;
+}
+
+.container-menuItem-img-user{
+	margin-right: 10%;
+}
+@media (max-width: 575px) {
+	.container-side-left{
+		width: 100%;
+	}
+	
+	.container-menuItem-button{
+		padding: 0 10%;
+	}
+	.container-menuItem-button-user{
+		justify-content: center;
+		margin-bottom: 2%;
+	}
+	.container-menuList{
+		border-top: 1px solid rgba(64,64,64,0.7);
+		border-bottom: 1px solid rgba(64,64,64,0.7);
+	}
+
+}
+
+@media (min-width: 576px) {
+	.container-side-left{
+		width: 50%;
+	}
+}
+
+@media (min-width: 768px) {
+	.container-side-left{
+		width: 27vw;
+	}
+}
+
+@media (min-width: 992px) {
+	.container-side-left{
+		width: 22vw;
+	}
+}
+
+@media (min-width: 1200px) {
+	.container-side-left{
+		width: 15vw;
+	}
+}

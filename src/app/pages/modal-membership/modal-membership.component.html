@@ -1,0 +1,47 @@
+
+	<div id="membership" class="modal fade">
+		<div class="modal-dialog modal-confirm">
+			<div class="modal-content" >
+				<div class="modal-header flex-column d-flex ">
+					<div class="row justify-content-center">
+					</div>                       
+					<button type="button" class="close material-icons justify-content-le" data-dismiss="modal" (click)="bsModalRef.hide()">  cerrar</button> 
+					<div class="container-fluid justify-content-left">
+						<h3>NetPay y Facturacion/Opcion A</h3>
+					</div>
+					<hr class="hr1" noshade="noshade"/>
+					<img src="assets/santander-logo.png" class="img-fluid float-left" width="50%" height="35px" alt="Responsive image">
+					<br> 
+				</div>
+				<div>
+					<div class="container p-0" >
+						<table class="table table-dark table-striped ">
+							<tbody>
+								<tr>
+									<td>Numero de cuenta: </td>
+									<td>65-50794531-5</td>
+								</tr>
+								<tr>
+									<td>CLABE interbancaria:</td>
+									<td>0148 6365 5079 4531 56</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<br><br>
+				<div class="container-fluid">
+					<div class="row justify-content-center"> <p> <b>Titular:</b> &nbsp; Productos y Aplicaciones Inteligentes S.A de C.V </p>
+					</div>
+					<hr class="hr2" noshade="noshade"/>
+				</div>
+				<div class="container justify-content-left"  >
+					<div class="modal-footer" >
+						<div class="d-flex justify-content-end">
+							<custom-button data-dismiss="modal" [buttonLabel]="'Cerrar'" [buttonClass]="'btn btn-danger'" ></custom-button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

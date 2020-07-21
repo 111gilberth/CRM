@@ -1,0 +1,78 @@
+
+<button attr.data-target= "{{modalTarget}}" class="{{buttonClass}}" (click)="openModal(modalEdit)">{{button}}</button>
+
+<ng-template #modalEdit>
+	<div class="modal-content rounded-0">
+      <div class="dish-title">
+        <h3 class="dish-title-h3">{{myDish.name}}</h3>
+        <button class="dish-title-button" (click)="cerrar()" style="">Cancelar</button>
+        &nbsp;
+        <button (click)="editar()" class="dish-title-button dish-title-button-black">Editar</button>
+      </div>
+      <form [formGroup]="editForm">
+      <div class="dish-body dish-body-col">
+        <div class="dish-body-col">
+          <div class="rightBorder">
+            <span class="dish-body-span">Imagen de portada</span>
+            <section class="dish-body-imgCont">
+                <input checked="" class="input-style" id="file-upload" type="file" accept="image/*" (change)="showPreview($event, 1)" />
+                <img class="dish-body-img" src="{{myDish.imagePurl}}" alt="Imagen de Portada">
+              </section>
+            <span class="dish-body-span">Platillo AR</span>
+            <section class="dish-body-imgCont">
+                  <input class="input-style" id="file-upload-2" type="file" accept="image/*" (change)="showPreview($event, 2)"/>
+                  <img class="dish-body-img" src="{{myDish.imageARurl}}" alt="Imagen de AR">
+            </section>
+            <button  class="dish-title-button" target="_blank" onclick="window.open('https://www.remove.bg/')">Convertir PNG</button>
+          </div>
+        </div>
+        <div class="dish-body-col">
+          <section>
+            <h3 class="dish-body-h3">Nombre</h3>
+            <br>
+            <span class="dish-body-span-desc">
+              <input class="input-border"
+              formControlName="name"
+              [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+              <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                <div *ngIf="f.name.errors.required">Debes seleccionar un horario</div>
+              </div>
+            </span>
+            <br>
+            <h3 class="dish-body-h3">Descripción</h3>
+            <br>
+            <span class="dish-body-span-desc"><textarea style="height: 85px;" class="input-border"
+              formControlName="desc"
+              [ngClass]="{ 'is-invalid': submitted && f.desc.errors }"></textarea>
+              <div *ngIf="submitted && f.desc.errors" class="invalid-feedback">
+                <div *ngIf="f.desc.errors.required">Debes seleccionar un horario</div>
+              </div>
+            </span>
+            <br>
+            <h3 class="dish-body-h3">Precio</h3>
+            <br>
+            <span class="dish-body-span-desc"><input class="input-border"
+              formControlName="price"
+              [ngClass]="{ 'is-invalid': submitted && f.price.errors }">
+              <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+                <div *ngIf="f.price.errors.required">Debes seleccionar un horario</div>
+              </div>
+            </span>
+            <br>
+            <h3 class="dish-body-h3">Categoria</h3>
+            <br>
+            <span class="dish-body-span-desc"><input class="input-border"
+              formControlName="category"
+              [ngClass]="{ 'is-invalid': submitted && f.price.errors }">
+              <div *ngIf="submitted && f.category.errors" class="invalid-feedback">
+                <div *ngIf="f.category.errors.required">Debes seleccionar un horario</div>
+              </div>
+            </span>
+            <br>
+          </section>
+        </div>
+      </div>
+      </form>
+  </div>
+</ng-template>
+

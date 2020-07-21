@@ -1,0 +1,211 @@
+<div class="modal-content rounded-0">
+  <div class="dish-title">
+    <h3 class="dish-title-h3">{{ title }}</h3>
+    <button class="dish-title-button" (click)="closeModal()">
+      Cancelar
+    </button>
+    &nbsp;
+    <button
+      (click)="actionModal()"
+      class="dish-title-button dish-title-button-black"
+    >
+      {{ buttonText }}
+    </button>
+  </div>
+  <form [formGroup]="editForm">
+    <div class="dish-body dish-body-col">
+      <div class="container col-md-5">
+        <div class="col size" style="font-weight: bold;">Imagen de portada</div>
+        <div class="col">
+          <div
+            class="border-button"
+            *ngIf="(!xx && !isEdit) || (addimage && isEdit)"
+          >
+            <div class="">
+              <div class="col"></div>
+              <div class="center">
+                <label for="file-upload" class="custom-file-upload">
+                  <span class="material-icons">arrow_upward</span>
+                </label>
+                <input
+                  id="file-upload"
+                  type="file"
+                  accept="image/*"
+                  (change)="showPreview($event, 1)"
+                />
+              </div>
+              <div class="col">
+                <label class="size-2"
+                  >Sube una imagen en formato .PNG o .JPG</label
+                >
+              </div>
+            </div>
+          </div>
+          <div *ngIf="xx">
+            <!-- <div class="center"> -->
+            <input
+              type="hidden"
+              name="fileHidden"
+              formControlName="imageUrlctr"
+            />
+            <!-- Image Preview -->
+            <div class="imagePreview" *ngIf="imageUrl && imageUrl !== ''">
+              <img
+                [src]="imageUrl"
+                alt="Imagen de Portada"
+                width="180px"
+                height="190px"
+              />
+            </div>
+            <!-- </div> -->
+          </div>
+          <img
+            *ngIf="isEdit && !addimage"
+            class="dish-body-img"
+            src="{{ dish.imageURLs[0] }}"
+          />
+          <label
+            *ngIf="isEdit! && !addimage"
+            (click)="clic()"
+            class="custom-file-upload"
+          >
+            <span class="material-icons">arrow_upward</span>
+          </label>
+        </div>
+        <br />
+        <div class="col size" style="font-weight: bold;">Platillo AR</div>
+        <div class="col">
+          <div
+            class="border-button"
+            *ngIf="(!xxx && !isEdit) || (addimageAR && isEdit)"
+          >
+            <div class="">
+              <div class="col"></div>
+              <div class="center-v2">
+                <label for="file-upload-2" class="custom-file-upload">
+                  <span class="material-icons">arrow_upward</span>
+                </label>
+                <input
+                  id="file-upload-2"
+                  type="file"
+                  accept=".png"
+                  (change)="showPreview($event, 2)"
+                />
+              </div>
+              <div class="col">
+                <label class="size-2 text-center"
+                  >Sube una imagen en formato .PNG con fondo
+                  transparente.</label
+                >
+              </div>
+            </div>
+          </div>
+          <div *ngIf="xxx">
+            <!-- <div class="center"> -->
+            <input
+              type="hidden"
+              name="fileHidden"
+              formControlName="bucketARImage"
+            />
+            <!-- Image Preview -->
+            <div class="imagePreview" *ngIf="imageARurl && imageARurl !== ''">
+              <img
+                [src]="imageARurl"
+                alt="Imagen AR"
+                width="180px"
+                height="190px"
+              />
+            </div>
+            <!-- </div> -->
+          </div>
+          <img
+            *ngIf="isEdit && !addimageAR"
+            class="dish-body-img"
+            src="{{ dish.bucketARImageID }}"
+          />
+          <label
+            *ngIf="isEdit && !addimageAR"
+            (click)="clicAR()"
+            class="custom-file-upload"
+          >
+            <span class="material-icons">arrow_upward</span>
+          </label>
+        </div>
+        <div class="col pt-4">
+          <button
+            onClick="window.open('https://www.remove.bg/');"
+            class="dish-title-button focus-cancel"
+          >
+            Convertir a PNG
+          </button>
+        </div>
+      </div>
+      <div class="dish-body-col col-md-6">
+        <section>
+          <br />
+          <h3 class="dish-body-h3">
+            Nombre <span style="color: red;">*</span>
+          </h3>
+          <br />
+          <span class="dish-body-span-desc"
+            ><input
+              class="input-border form-control"
+              formControlName="name"
+              [ngClass]="{ 'is-invalid': submitted && f.price.errors }"
+            />
+          </span>
+          <br />
+          <h3 class="dish-body-h3">
+            Descripción <span style="color: red;">*</span>
+          </h3>
+          <br />
+          <span class="dish-body-span-desc">
+            <textarea
+              style="height: 85px;"
+              class="input-border form-control"
+              formControlName="description"
+              [ngClass]="{ 'is-invalid': submitted && f.desc.errors }"
+            ></textarea>
+          </span>
+          <br />
+          <h3 class="dish-body-h3">
+            Precio <span style="color: red;">*</span>
+          </h3>
+          <br />
+          <span class="dish-body-span-desc"
+            ><input
+              type="number"
+              class="input-border form-control"
+              formControlName="price"
+              [ngClass]="{ 'is-invalid': submitted && f.price.errors }"
+            />
+          </span>
+          <br />
+          <h3 class="dish-body-h3">
+            Categoria <span style="color: red;">*</span>
+          </h3>
+          <br />
+          <span class="dish-body-span-desc">
+            <!-- <input
+              class="input-border form-control"
+              formControlName="categoryName"
+              [ngClass]="{ 'is-invalid': submitted && f.price.errors }"
+            /> -->
+
+            <select
+              class="input-border form-control"
+              formControlName="category"
+            >
+              <option
+                *ngFor="let category of categories"
+                value="{{ category.id }}"
+                >{{ category.name }}</option
+              >
+            </select>
+          </span>
+          <br />
+        </section>
+      </div>
+    </div>
+  </form>
+</div>

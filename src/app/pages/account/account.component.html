@@ -1,0 +1,108 @@
+<div class="container-main">
+  <form
+    [formGroup]="accountForm"
+    (ngSubmit)="onSubmit()"
+    class="account-container container-shadow"
+  >
+    <h1 class="account-container-h1">Datos Generales/Perfil</h1>
+    <div class="account-container account-container-inputs">
+      <app-custom-input
+        class="account-container-input"
+        formControlName="name"
+        [inputType]="'text'"
+        [valueClass]="'valueForm'"
+        [title]="'Nombre del restaurante'"
+        [placeHolder]="''"
+      ></app-custom-input>
+    </div>
+    <div class="account-container account-container-inputs">
+      <app-custom-input
+        class="account-container-input"
+        formControlName="neighborhood"
+        [inputType]="'text'"
+        [valueClass]="'valueForm'"
+        [title]="'Dirección'"
+        [placeHolder]="''"
+      ></app-custom-input>
+    </div>
+    <div class="account-container account-container-inputs">
+      <app-custom-input
+        class="account-container-input"
+        formControlName="zipCode"
+        [inputType]="'text'"
+        [valueClass]="'valueForm'"
+        [title]="'Código postal'"
+        [placeHolder]="''"
+      ></app-custom-input>
+    </div>
+    <div class="account-container account-container-inputs">
+      <label>Tipo de restaurante <span style="color: red;">*</span></label>
+      <select
+        class="account-container-input form-control"
+        formControlName="type"
+      >
+        <option *ngFor="let type of typesRestaurant" value="{{ type.id }}">{{
+          type.value
+        }}</option>
+      </select>
+    </div>
+    <div class="account-container account-container-inputs">
+      <app-custom-input
+        class="account-container-input"
+        formControlName="phoneNumber"
+        [inputType]="'text'"
+        [valueClass]="'valueForm'"
+        [title]="'Télefono'"
+        [placeHolder]="''"
+      ></app-custom-input>
+    </div>
+    <div class="account-container account-container-inputs">
+      <app-custom-input
+        class="account-container-input"
+        formControlName="rfc"
+        [inputType]="'text'"
+        [valueClass]="'valueForm'"
+        [title]="'RFC'"
+        [placeHolder]="''"
+      ></app-custom-input>
+    </div>
+    <div class="account-container account-container-inputs">
+      <app-custom-input
+        class="account-container-input"
+        formControlName="city"
+        [inputType]="'text'"
+        [valueClass]="'valueForm'"
+        [title]="'Ciudad'"
+        [placeHolder]="''"
+      ></app-custom-input>
+    </div>
+    <div class="account-container account-container-inputs">
+      <app-custom-input
+        class="account-container-input"
+        formControlName="state"
+        [inputType]="'text'"
+        [valueClass]="'valueForm'"
+        [title]="'Estado'"
+        [placeHolder]="''"
+      ></app-custom-input>
+    </div>
+    <div class="account-container account-container-inputs">
+      <app-custom-input
+        class="account-container-input"
+        formControlName="country"
+        [inputType]="'text'"
+        [valueClass]="'valueForm'"
+        [title]="'Pais'"
+        [placeHolder]="''"
+      ></app-custom-input>
+    </div>
+    <div class="account-container account-container-inputs">
+      <custom-button
+        [buttonLabel]="'Guardar'"
+        [buttonClass]="'btn btn-primary'"
+        [buttonType]="'submit'"
+        (click)="updaterestaurant()"
+      ></custom-button>
+    </div>
+  </form>
+</div>

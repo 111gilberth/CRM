@@ -1,0 +1,71 @@
+.val-span{
+  display: inline-block;
+  width: 90px;
+  font-weight: bold;
+  color: #5aa832;
+  background-color: #c6fa87;
+  opacity: 0.5;
+  border-radius: 30px;
+  text-align: center;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0.25em 0.4em;
+}
+
+.rec-span{
+  display: inline-block;
+  width: 90px;
+  font-weight: bold;
+  color: #e32a20;
+  background-color: #ed7872;
+  text-align: center;
+  opacity: 0.5;
+  border-radius: 30px;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0.25em 0.4em;
+}
+
+.env-span{
+  display: inline-block;
+  width: 90px;
+  font-weight: bold;
+  color: #878686;
+  background-color: #e3dede;
+  opacity: 0.5;
+  border-radius: 30px;
+  text-align: center;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0.25em 0.4em;
+}
+.validator{
+    display: inline-block;
+    width: auto;
+    text-align: center;
+    opacity: 0.5;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    margin: 3% 0;
+    padding: 0.3em 1rem;
+}
+
+.envDet{
+  color: #878686;
+  background-color: #e3dede;
+}
+
+.valDet{
+  color: #5aa832;
+  background-color: #c6fa87;
+}
+
+.recDet{
+  color: #e32a20;
+  background-color: #ed7872;
+}

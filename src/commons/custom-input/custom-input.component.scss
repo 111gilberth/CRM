@@ -1,0 +1,79 @@
+ .label-color-text-black{
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+input[type=text] {
+  width: 100%;
+  padding: 1px 6px;
+  border-radius: 6px;
+  margin: 1px 0;
+  box-sizing: border-box;
+  border: 2px solid rgb(138, 118, 118);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+input[type=text]:focus {
+  border: 2px solid #996100;
+  box-shadow: 0 0 6px 0 #996100!important;
+}
+#id{
+  color: red;
+ }
+ label{
+   padding: 0;
+ }
+
+  .with-color{
+    color: red;
+   }
+   .without-color{
+    color: transparent;
+   }
+
+   a:hover{
+    color: transparent;
+   }
+
+   .label-color-text-black{
+     padding: 0;
+    color: black;
+
+   }
+   .label-color-text-white{
+   padding: 0;
+    color: black;
+ }
+ .label-color-text-white{
+ padding: 0;
+ color: white;
+ display: contents;
+
+}
+
+.login-style {
+    color: seashell;
+
+    background-color: black;
+    border: 2px solid white;
+    box-shadow: 0 0 3px 0 white!important;
+    width: 100%;
+    padding: 1px 6px;
+    border-radius: 6px;
+    margin: 1px 0;
+    box-sizing: border-box;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    font-size: 1rem;
+}
+
+
+
+.login-style:focus {
+border-color: rgba(133, 158, 241, 0.966);
+box-shadow: 0 0 4px 0 white!important;
+} 
+
+.container-custom-input{
+  width: 100%;
+}

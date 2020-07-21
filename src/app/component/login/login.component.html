@@ -1,0 +1,28 @@
+<div class="container-login">
+	<div class="container-login container-left">
+		<div class="container-left-center">
+			<img src="../../assets/blackdish_logo_white.png" class="container-login-img">
+			<div class="container-login container-inputs">
+				<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+					<div class="form-group">
+						<app-custom-input formControlName="username" [inputType]="'email'" [valueClass] = "'valueLogin'" [title]="'Email'"  [placeHolder]="'Email'" class="loginForm-input"></app-custom-input>
+						<br>
+						<br>
+						<app-custom-input formControlName="password" [inputType]="'password'" [valueClass] = "'valueLogin'" [title]="'Contraseña'"  [placeHolder]="'Contraseña'" class="loginForm-input"></app-custom-input>
+					</div>
+					<div class="form-group">
+						<small class="container-login-small">¿Olvidaste tu contraseña?</small>
+						<br>
+						<br>
+						<custom-button [buttonType]="'submit'" [buttonLabel]="'Iniciar sesion'" [buttonClass]="'btn btn-outline-light btnlogin'"></custom-button>
+					</div>
+				</form>
+			</div>
+			<span class="container-login-span--reg">¿No tienes cuenta? <b>Registrate</b></span>
+		</div>
+	</div>
+	<div class="container-login container-right">
+		<h3 class="container-right-h3">Introduciendo tu <br> restaurante al futuro</h3>
+		<a href="mailto:info@blackdish.mx" class="container-right-span">info@blackdish.mx</a>
+	</div>
+</div>

@@ -1,0 +1,158 @@
+<div [ngClass]="loading ? 'spinner' : 'spinner-no'">
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+<div class="container-main">
+  <div class="container-plates">
+    <div class="container-plates container-plates-top">
+      <span class="container-plates-span"
+        ><span class="container-plates-span-badge badge-green">{{
+          dishes.validate
+        }}</span>
+        Validados</span
+      >
+      <span class="container-plates-span container-plates-span-l"
+        ><span class="container-plates-span-badge badge-gray">{{
+          dishes.pending
+        }}</span>
+        En validación</span
+      >
+      <span class="container-plates-span container-plates-span-l"
+        ><span class="container-plates-span-badge badge-red">{{
+          dishes.rejected
+        }}</span>
+        Rechazados</span
+      >
+      <div class="container-plates-right">
+        <div class="dropdown">
+          <span>Ordernar por:</span>
+          <button class="dropbtn container-plates-right-button">
+            <b>{{ selectedFilter }}</b> <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <span (click)="setFilter('Mejor calificados')"
+              >Mejor calificados</span
+            >
+            <span (click)="setFilter('Nombre')">Nombre</span>
+            <span (click)="setFilter('Recientes')">Recientes</span>
+          </div>
+        </div>
+        <div [ngClass]="openSearch ? 'searchDiv searchDiv-open' : 'searchDiv'">
+          <input
+            type="text"
+            name="dishSearch"
+            [ngClass]="
+              openSearch
+                ? 'searchDiv-input'
+                : 'searchDiv-input searchDiv-input-hidden'
+            "
+            [(ngModel)]="searchText"
+            (keydown)="toggleSearch($event)"
+          />
+          <img
+            src="../../assets/search.svg"
+            class="container-plates-img"
+            tooltip="Buscar"
+            placement="top"
+            (click)="toggleSearch(undefined)"
+          />
+        </div>
+        <img
+          src="../../assets/add.svg"
+          class="container-plates-img"
+          tooltip="Nuevo platillo"
+          placement="top"
+          (click)="openDishModal()"
+        />
+      </div>
+    </div>
+    <div class="container-plates container-plates-bottom">
+      <ngx-datatable
+        [rows]="tableRows"
+        rowHeight="auto"
+        [sorts]="sorter"
+        [loadingIndicator]="loading"
+        [footerHeight]="50"
+      >
+        <ngx-datatable-column name="#" prop="dishID">
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            {{ value.substring(0, 8) }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Nombre de platillo" prop="name">
+          <ng-template
+            let-row="row"
+            let-value="value"
+            ngx-datatable-cell-template
+          >
+            <a
+              routerLink="dish/{{ row['category']['id'] }}/{{ row['dishID'] }}"
+              >{{ value }}</a
+            >
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Precio" prop="price">
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            ${{ value }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Calificación" prop="rate">
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            {{ value ? value : 0 }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Fecha de creación" prop="creationDate">
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            {{ getDate(value) }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Estado" prop="status">
+          <ng-template
+            let-row="row"
+            let-value="value"
+            ngx-datatable-cell-template
+          >
+            <app-validator
+              [ValueType]="getTrans(row['status'])"
+              [ValueClass]="getValue(row['status'])"
+            ></app-validator>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Imagen" prop="imageURL">
+          <ng-template
+            let-row="row"
+            let-value="value"
+            ngx-datatable-cell-template
+          >
+            <img src="{{ row['imageURLs'][0] }}" width="64" />
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-footer>
+          <ng-template
+            ngx-datatable-footer-template
+            let-rowCount="rowCount"
+            let-pageSize="pageSize"
+            let-selectedCount="selectedCount"
+            let-curPage="curPage"
+            let-offset="offset"
+            let-isVisible="isVisible"
+          >
+            Total: {{ rowCount.toLocaleString() }} platillos
+            <datatable-pager
+              [pagerLeftArrowIcon]="'fas fa-angle-left'"
+              [pagerRightArrowIcon]="'fas fa-angle-right'"
+              [pagerPreviousIcon]="'fas fa-angle-double-left'"
+              [pagerNextIcon]="'fas fa-angle-double-right'"
+              [page]="curPage"
+              [size]="pageSize"
+              [count]="rowCount"
+              (change)="changeTable($event)"
+            >
+            </datatable-pager>
+          </ng-template>
+        </ngx-datatable-footer>
+      </ngx-datatable>
+    </div>
+  </div>
+</div>

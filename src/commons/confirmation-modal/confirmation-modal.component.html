@@ -1,0 +1,44 @@
+<button
+  attr.data-target="{{ modalTarget }}"
+  class="{{ buttonClass }}"
+  (click)="openModal(modal)"
+>
+  {{ button }}
+</button>
+
+<ng-template #modal>
+  <div class="modal-dialog modal-confirm">
+    <div class="{{ modalClass }}">
+      <i class="material-icons">{{ modalIcon }}</i>
+    </div>
+    <br />
+  </div>
+  <div class="{{ modalBodyClass }}">
+    <br />
+    <br />
+    <br />
+    <div class="text-center">
+      <h5 class="modal-title">{{ modalTitle }}</h5>
+      <p>{{ modalSubtitle }}</p>
+    </div>
+  </div>
+  <div class="modal-body text-center">
+    <button
+      type="button"
+      class="{{ btnCancel }} {{ btnHide }}"
+      (click)="confirm()"
+      data-dismiss="modal"
+    >
+      {{ btnTitleOne }}
+    </button>
+    &nbsp;
+    <button
+      type="button"
+      class="{{ btnIn }}"
+      (click)="decline()"
+      data-dismiss="modal"
+    >
+      {{ btnTitleTwo }}
+    </button>
+  </div>
+</ng-template>

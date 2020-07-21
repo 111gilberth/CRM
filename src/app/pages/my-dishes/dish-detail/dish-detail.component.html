@@ -1,0 +1,90 @@
+<div [ngClass]="loading ? 'spinner' : 'spinner-no'">
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+<div class="container-main">
+  <div class="container-dish">
+    <div class="container-dish container-dish-top">
+      <img
+        src="../../../assets/back_btn.svg"
+        class="container-dish-img"
+        (click)="location.back()"
+      />
+      <span class="container-dish-span">Regresar a la lista de platillos</span>
+    </div>
+    <div class="container-dish container-dish-bottom">
+      <div class="dish-detail">
+        <div class="dish-title">
+          <h3 class="dish-title-h3">{{ myDish.name }}</h3>
+          <app-confirmation-modal
+            [buttonValue]="'delete'"
+            [button]="'Eliminar'"
+            [buttonClass]="'dish-title-button'"
+            [myDish]="myDish"
+          ></app-confirmation-modal>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button
+            class="dish-title-button dish-title-button-black"
+            (click)="openDishModal()"
+          >
+            Editar
+          </button>
+        </div>
+        <div class="dish-body dish-body-col">
+          <div class="dish-body-col">
+            <div class="rightBorder">
+              <span class="dish-body-span">Imagen de portada</span>
+              <section class="dish-body-imgCont">
+                <img class="dish-body-img" src="{{ myDish.imageURLs[0] }}" />
+              </section>
+              <span class="dish-body-span"
+                ><i
+                  [ngClass]="isPng"
+                  placement="left"
+                  ngbTooltip="La imagen no cuenta con el formato PNG"
+                ></i>
+                Platillo AR</span
+              >
+              <section class="dish-body-imgCont">
+                <img class="dish-body-img" src="{{ myDish.bucketARImageID }}" />
+              </section>
+            </div>
+          </div>
+          <div class="dish-body-col">
+            <section>
+              <h3 class="dish-body-h3">Nombre</h3>
+              <br />
+              <span class="dish-body-span-desc">{{ myDish.name }}</span>
+              <br />
+              <h3 class="dish-body-h3">Descripción</h3>
+              <br />
+              <span class="dish-body-span-desc">{{ myDish.description }}</span>
+              <br />
+              <h3 class="dish-body-h3">Precio</h3>
+              <br />
+              <span class="dish-body-span-desc">${{ myDish.price }}</span>
+              <br />
+              <h3 class="dish-body-h3">Categoría</h3>
+              <br />
+              <span class="dish-body-span-desc">{{
+                myDish.category.name
+              }}</span>
+              <br />
+              <h3 class="dish-body-h3">Estado</h3>
+              <app-validator
+                [ValueType]="getTrans(myDish.status)"
+                [ValueClass]="getStatusValue(myDish.status)"
+                [ngStyle]="{
+                  backgroundColor: getBgColor(myDish.status),
+                  color: getColor(myDish.status),
+                  'border-radius': '30px'
+                }"
+              ></app-validator>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

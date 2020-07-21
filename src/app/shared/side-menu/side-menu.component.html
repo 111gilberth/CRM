@@ -1,0 +1,98 @@
+<div class="container-side container-side-left">
+  <img
+    src="../../assets/blackdish_logo.png"
+    routerLink="/dashboard"
+    class="container-img-logo"
+  />
+  <div class="container-side container-menuList">
+    <div class="container-side container-menuItem">
+      <button
+        (click)="toggleMenu()"
+        [ngClass]="
+          menuState === 'in'
+            ? 'container-menuItem-button'
+            : 'container-menuItem-button container-menuItem-button-open'
+        "
+      >
+        <img src="../../assets/plate.svg" class="container-menuItem-img" /> Mis
+        Platillos
+        <i
+          [ngClass]="
+            menuState === 'in' ? 'fas fa-chevron-up' : 'fas fa-chevron-down'
+          "
+        ></i>
+      </button>
+      <ul class="container-ul container-ul-menu_ul" [@slideInOut]="menuState">
+        <li
+          *ngFor="let item of categoryItems"
+          [ngClass]="
+            item.selected
+              ? 'container-li container-li-selected'
+              : 'container-li'
+          "
+          (click)="selectItem(item.id)"
+        >
+          {{ item.name }}
+        </li>
+        <li
+          class="container-li container-li-new_item"
+          href="#category"
+          data-toggle="modal"
+        >
+          <i class="fas fa-plus"></i> Nueva categoria
+        </li>
+      </ul>
+    </div>
+    <div class="container-side container-menuItem">
+      <button class="container-menuItem-button">
+        <img src="../../assets/promo.svg" class="container-menuItem-img" />
+        <span class="container-menuItem-span">Promociones</span>
+      </button>
+    </div>
+    <div class="container-side container-menuItem">
+      <button class="container-menuItem-button">
+        <img src="../../assets/loc_pin.svg" class="container-menuItem-img" />
+        <span class="container-menuItem-span">Restaurantes</span>
+      </button>
+    </div>
+    <div class="container-side container-menuItem">
+      <button class="container-menuItem-button">
+        <img src="../../assets/schedule.svg" class="container-menuItem-img" />
+        <span class="container-menuItem-span">Horarios</span>
+      </button>
+    </div>
+    <div class="container-side container-menuItem">
+      <button
+        class="container-menuItem-button"
+        href="#membership"
+        data-toggle="modal"
+      >
+        <img src="../../assets/star.svg" class="container-menuItem-img" />
+        <span class="container-menuItem-span">Membresia</span>
+      </button>
+    </div>
+  </div>
+  <div>
+    <button
+      class="container-menuItem-button container-menuItem-button-user"
+      routerLinkActive="list-item-active"
+      (click)="openAccount()"
+    >
+      <img
+        src="../../assets/user.svg"
+        class="container-menuItem-img container-menuItem-img-user"
+      />
+      Mi cuenta
+    </button>
+    <button
+      class="container-menuItem-button container-menuItem-button-user"
+      (click)="logout()"
+    >
+      <img
+        src="../../assets/shut_off.svg"
+        class="container-menuItem-img container-menuItem-img-user"
+      />
+      Cerrar sesion
+    </button>
+  </div>
+</div>

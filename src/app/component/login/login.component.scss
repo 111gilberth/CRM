@@ -1,0 +1,98 @@
+.container-login{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	color: white;
+	margin: 0;
+}
+
+.container-left{
+	width: 30%;
+	background-color: black;
+	flex-flow: column;
+}
+
+.container-left-center{
+	width: 75%;
+	margin: auto;
+	height: 100%;
+	text-align: left;
+	display: flex;
+	flex-flow: column;
+	justify-content: space-around;
+}
+
+.container-login-img{
+	width: 75%;
+	margin-top: 5%;
+}
+
+.container-inputs{
+	height: auto;
+	flex-flow: column;
+	width: 100%;
+}
+
+.container-right{
+	width: 80%;
+	background-image: url("../../../assets/login_bg.jpg");
+	background-size: 100%;
+	color: white;
+	flex-flow: column;
+	justify-content: space-between;
+}
+
+.container-login-span--reg{
+	margin: 1% 0;
+	cursor: pointer;
+}
+
+.container-right-h3{
+	margin: 13% 15%;
+	text-shadow: 1px 1px 2px black;
+}
+
+.container-right-span{
+	margin: 1% 1%;
+	color: white;
+	text-decoration: none;
+	text-align: right;
+}
+
+.container-login-input{
+	background: black;
+	color: white;
+	border: 1.5px solid white;
+	border-radius: 5px;
+	padding: 1%;
+	text-transform: uppercase;
+	margin: 1% 0 10% 0;
+}
+
+.container-login-small{
+	cursor: pointer;
+}
+
+.form-group{
+	margin-bottom: 0;
+}
+
+.loginForm-separator{
+	height: 10%;
+}
+
+.loginForm-input{
+	margin: 5% 0;
+}
+
+@media (max-width: 575.98px) { 
+	.container-left{
+		width: 100%;
+		background-color: black;
+		flex-flow: column;
+	}
+
+	.container-right{
+		display: none;
+	}
+}

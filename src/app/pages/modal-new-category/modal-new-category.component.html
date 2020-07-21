@@ -1,0 +1,60 @@
+<div id="category" class="modal fade">
+  <div class="modal-dialog modal-confirm">
+    <div class="modal-content">
+      <div class="modal-header flex-column d-flex flex-row-reverse">
+        <div class="icon-box">
+          <button
+            type="button"
+            class="close material-icons justify-content-right"
+            (click)="element.click()"
+            data-dismiss="modal"
+            aria-hidden="true"
+          >
+            &#xE5CD;
+          </button>
+          <img src="../../assets/new-category.svg" />
+        </div>
+      </div>
+      <div class="{{ modalBodyClass }}">
+        <div class="container">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-2"></div>
+              <div class="col-8">
+                <p>
+                  <label for="" class="titlenewcategory"
+                    >Nombre de nueva categoria:</label
+                  >
+                  <input type="text" placeholder="Desayuno" name="f" [(ngModel)]="categoryLocal.name" [typeahead]="dataSource" typeaheadOptionField="name" class="form-control" (change)="onChange()" (typeaheadOnSelect)="onSelect($event)" autocomplete="chrome-off">
+                </p>
+                <br />
+                <br />
+                <div class="row justify-content-center">
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn-cancel"
+                      data-dismiss="modal"
+                    >
+                      Cancelar
+                    </button>
+                    <button
+                      type="submit"
+                      data-dismiss="modal"
+                      class="btn-save"
+                      [disabled]="canSave"
+                      (click)="newCategory()"
+                    >
+                      Guardar
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

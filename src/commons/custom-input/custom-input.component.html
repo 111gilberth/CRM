@@ -1,0 +1,6 @@
+<div class="container-custom-input">
+            <label  [className]="myclass? 'label-color-text-black': 'label-color-text-white'" >{{title}}<a  [className]=" asterisk ? 'with-color': 'without-color'">*</a></label>
+            <input type="{{inputType}}"  class="{{validClass}}"  placeholder= '{{placeHolder}}'  [(ngModel)]="input"
+            (ngModelChange)="onChange($event)"
+            (blur)="onTouch()">
+</div>
